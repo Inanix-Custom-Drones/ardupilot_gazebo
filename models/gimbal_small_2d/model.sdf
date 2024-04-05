@@ -2,7 +2,7 @@
 <sdf version='1.9'>
   <model name='gimbal_small_2d'>
     <pose>0 0 0.18 0 0 0</pose>
-    <link name='base_link'>
+    <link name='base_link_gimbal'>
       <inertial>
         <mass>0.2</mass>
         <inertia>
@@ -71,7 +71,7 @@
       </collision>
     </link>
     <joint name='roll_joint' type='revolute'>
-      <parent>base_link</parent>
+      <parent>base_link_gimbal</parent>
       <child>roll_link</child>
       <axis>
         <xyz>0 0 1</xyz>
