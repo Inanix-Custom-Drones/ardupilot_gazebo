@@ -342,10 +342,10 @@
       <pose degrees="true">0 0 0.195 0 0 90</pose>
     </include>
     
-    <!--include>
-      <uri>model://blueboat</uri>
+    <include>
+      <uri>model://dronvor_boat</uri>
       <pose degrees="true">1 0 0.195 0 0 90</pose>
-    </include-->
+    </include>
 
   </world>
 </sdf>
