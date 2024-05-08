@@ -344,7 +344,7 @@
     
     <include>
       <uri>model://dronvor_rover</uri>
-      <pose degrees="true">0 1 0.195 0 0 90</pose>
+      <pose degrees="true">0 0 0.195 0 0 90</pose>
     </include>
     
     <!--include>
