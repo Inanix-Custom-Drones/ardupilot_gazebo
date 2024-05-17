@@ -146,14 +146,14 @@
       <sensor name="camera" type="camera">
         <pose degrees="true">0 0 0 -90 -90 0</pose>
         <camera>
-          <horizontal_fov>2.0</horizontal_fov>
+          <horizontal_fov>1.089</horizontal_fov>
           <image>
-            <width>640</width>
-            <height>480</height>
+            <width>800</width>
+            <height>600</height>
           </image>
           <clip>
             <near>0.05</near>
-            <far>15000</far>
+            <far>800.0</far>
           </clip>
         </camera>
         <always_on>1</always_on>
