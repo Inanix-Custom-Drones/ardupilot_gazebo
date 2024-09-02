@@ -326,12 +326,6 @@
       </link>
     </model>
     
-    <plugin filename="ImageDisplay" name="ImageDisplay">
-	<gz-gui>
-	  <property type="string" key="state">docked_collapsed</property>
-	</gz-gui>
-    </plugin>
-    
     <include>
       <uri>model://runway</uri>
       <pose degrees="true">-29 545 0 0 0 363</pose>
