@@ -326,15 +326,6 @@
       </link>
     </model>
     
-<<<<<<< HEAD
-=======
-    <plugin filename="ImageDisplay" name="ImageDisplay">
-	<gz-gui>
-	  <property type="string" key="state">docked_collapsed</property>
-	</gz-gui>
-    </plugin>
-    
->>>>>>> branch 'dronvor' of https://github.com/Inanix-Custom-Drones/ardupilot_gazebo.git
     <include>
       <uri>model://runway</uri>
       <pose degrees="true">-29 545 0 0 0 363</pose>
