@@ -67,6 +67,8 @@ class GstCameraPlugin::Impl {
     bool useCuda{false};
     std::string imageTopic;
     std::string enableTopic;
+    std::string x264Caps;
+    bool useX264Caps{false};
 
     unsigned int width{0};
     unsigned int height{0};
@@ -172,6 +174,12 @@ void GstCameraPlugin::Configure(
     if (_sdf->HasElement("enable_topic"))
     {
         impl->enableTopic = _sdf->Get<std::string>("enable_topic");
+    }
+
+    if (_sdf->HasElement("x264_caps"))
+    {
+        impl->useX264Caps = true; 
+        impl->x264Caps = _sdf->Get<std::string>("x264_caps");
     }
 
     //! @note subscriptions are deferred to Pre-Update as the enclosing
@@ -424,14 +432,30 @@ void GstCameraPlugin::Impl::CreateGenericPipeline(GstElement *pipeline)
     // Connect all elements to pipeline
     gst_bin_add_many(GST_BIN(pipeline), source, queue, converter, encoder,
         payloader, sink, nullptr);
+    
+    if(useX264Caps){
+	    bool linkSrcQueue = gst_element_link(source, queue);
+	    bool linkQueueConv = gst_element_link(queue, converter);
+	    bool linkConvEnc = gst_element_link(converter, encoder);
+	    GstCaps *h264Caps = gst_caps_from_string(x264Caps);
+	    bool linkEncPay = gst_element_link_filtered(encoder, payloader, h264Caps);
+	    bool linkPaySink = gst_element_link(payloader, sink);
 
-    // Link all elements
-    if (gst_element_link_many(source, queue, converter, encoder,
-        payloader, sink, nullptr) != TRUE)
-    {
-        gzerr << "GstCameraPlugin: failed to link GStreamer elements"
-              << std::endl;
-        return;
+	    // Link all elements
+	    if ( ! (linkSrcQueue || linkQueueConv || linkConvEnc || linkEncPay || linkPaySink ) )
+	    {
+		gzerr << "GstCameraPlugin: failed to link GStreamer elements"
+		      << std::endl;
+		return;
+	    }
+    }else{
+	    if (gst_element_link_many(source, queue, converter, encoder,
+		payloader, sink, nullptr) != TRUE)
+	    {
+		gzerr << "GstCameraPlugin: failed to link GStreamer elements"
+		      << std::endl;
+		return;
+	    }
     }
 }
 
