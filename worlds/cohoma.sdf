@@ -350,7 +350,7 @@
     </include>
     
     <include>
-      <uri>model://r1_rover</uri>
+      <uri>model://r1_rover_withgimbal</uri>
       <pose degrees="true">0 1 4 0 0 90</pose>
     </include>
     

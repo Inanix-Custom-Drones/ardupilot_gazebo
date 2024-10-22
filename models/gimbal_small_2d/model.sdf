@@ -167,7 +167,6 @@
           <use_cuda>false</use_cuda>
           <x264_caps>video/x-h264, intra-refresh=(int)5,  profile=(string)baseline, bframes=(int)10, bitrate=(int)1500000, b-adapt=(bool)true, aud=(bool)false</x264_caps>
         </plugin>
-
       </sensor>
     </link>
     <joint name='tilt_joint' type='revolute'>
