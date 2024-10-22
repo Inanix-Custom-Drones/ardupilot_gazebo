@@ -165,6 +165,7 @@
           <udp_port>5600</udp_port>
           <use_basic_pipeline>true</use_basic_pipeline>
           <use_cuda>false</use_cuda>
+          <x264_caps>video/x-h264, intra-refresh=(int)5,  profile=(string)baseline, bframes=(int)10, bitrate=(int)1500000, b-adapt=(bool)true, aud=(bool)false</x264_caps>
         </plugin>
 
       </sensor>
