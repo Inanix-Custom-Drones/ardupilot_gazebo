@@ -3,11 +3,11 @@
   <model name='r1_rover_withgimbal'>
   
     <include>
-      <uri>model://gimbal_small_2d</uri>
+      <uri>model://gimbal_small_3d</uri>
       <name>gimbal</name>
       <pose degrees="true">0 -0.01 0.25 90 0 90</pose>
       <experimental:params>
-	      	<sensor element_id="tilt_link::camera">
+	      	<sensor element_id="pitch_link::camera">
 	      		<plugin name="GstCameraPlugin" action="modify">
 	      			<udp_port>5601</udp_port>
 	      		</plugin>
@@ -25,7 +25,7 @@
     
     <joint name="gimbal_joint" type="revolute">
       <parent>r1_rover::base_link</parent>
-      <child>gimbal::base_link_gimbal</child>
+      <child>gimbal::base_link</child>
       <axis>
         <limit>
           <lower>0</lower>
@@ -40,12 +40,12 @@
       filename="ArduPilotPlugin">
       <fdm_addr>127.0.0.1</fdm_addr>
       <fdm_port_in>9012</fdm_port_in>
-      <fdm_port_out>9013</fdm_port_out> 
+      <!--fdm_port_out>9013</fdm_port_out--> 
       <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
       <lock_step>1</lock_step>
       <gazeboXYZToNED degrees="true">0 0 0 180 0 90</gazeboXYZToNED>
       <modelXYZToAirplaneXForwardZDown degrees="true">0 0 0 180 0 0</modelXYZToAirplaneXForwardZDown>
-      <imuName>base_link::imu_sensor</imuName>
+      <imuName>r1_rover::base_link::imu_sensor</imuName>
 
       <!-- lf_wheel_link -->
       <control channel="0">
@@ -126,20 +126,53 @@
 		<servo_min>1100</servo_min>
 		<servo_max>1900</servo_max>
 		<type>COMMAND</type>
-		<cmd_topic>/gimbal/cmd_roll</cmd_topic>
-		<p_gain>3</p_gain>
+		<cmd_topic>/rover/gimbal/cmd_roll</cmd_topic>
+		<p_gain>0.1</p_gain>
 	</control>
 
 	<control channel="5">
-		<jointName>gimbal::tilt_joint</jointName>
+		<jointName>gimbal::pitch_joint</jointName>
 		<multiplier>3.14159265</multiplier>
 		<offset>-0.5</offset>
 		<servo_min>1100</servo_min>
 		<servo_max>1900</servo_max>
 		<type>COMMAND</type>
-		<cmd_topic>/gimbal/cmd_tilt</cmd_topic>
-		<p_gain>3</p_gain>
+		<cmd_topic>/rover/gimbal/cmd_tilt</cmd_topic>
+		<p_gain>0.1</p_gain>
 	</control>
+	
+	<control channel="6">
+		<jointName>gimbal::yaw_joint</jointName>
+		<multiplier>3.14159265</multiplier>
+		<offset>-0.5</offset>
+		<servo_min>1100</servo_min>
+		<servo_max>1900</servo_max>
+		<type>COMMAND</type>
+		<cmd_topic>/rover/gimbal/cmd_yaw</cmd_topic>
+		<p_gain>0.1</p_gain>
+	</control>
+    </plugin>
+    
+    <plugin
+      filename="gz-sim-joint-position-controller-system"
+      name="gz::sim::systems::JointPositionController">
+      <joint_name>gimbal::roll_joint</joint_name>
+      <topic>/rover/gimbal/cmd_roll</topic>
+      <p_gain>2</p_gain>
+    </plugin>
+    <plugin
+      filename="gz-sim-joint-position-controller-system"
+      name="gz::sim::systems::JointPositionController">
+      <joint_name>gimbal::pitch_joint</joint_name>
+      <topic>/rover/gimbal/cmd_tilt</topic>
+      <p_gain>2</p_gain>
+    </plugin>
+    <plugin
+      filename="gz-sim-joint-position-controller-system"
+      name="gz::sim::systems::JointPositionController">
+      <joint_name>gimbal::yaw_joint</joint_name>
+      <topic>/rover/gimbal/cmd_yaw</topic>
+      <p_gain>2</p_gain>
     </plugin>
   </model>
 </sdf>
