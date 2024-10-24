@@ -61,14 +61,14 @@
           <specular>0.01 0.01 0.01 1.0</specular>
         </material>
       </visual>
-      <collision name='roll_col'>
+      <!--collision name='roll_col'>
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
             <uri>model://gimbal_small_2d/meshes/base_arm.dae</uri>
           </mesh>
         </geometry>
-      </collision>
+      </collision-->
     </link>
     <joint name='roll_joint' type='revolute'>
       <parent>base_link_gimbal</parent>
@@ -111,7 +111,7 @@
           <specular>0.1 0.1 0.1 1.0</specular>
         </material>
       </visual>
-      <collision name='tilt_col'>
+      <!--collision name='tilt_col'>
         <pose>0 0 -0.005 0 0 0</pose>
         <geometry>
           <mesh>
@@ -119,7 +119,7 @@
             <uri>model://gimbal_small_2d/meshes/tilt.dae</uri>
           </mesh>
         </geometry>
-      </collision>
+      </collision-->
       <visual name='camera_viz'>
         <pose>0 0 0.02 0 0 0</pose>
         <geometry>
@@ -158,7 +158,7 @@
         </camera>
         <always_on>1</always_on>
         <update_rate>25</update_rate>
-        <visualize>1</visualize>
+        <visualize>0</visualize>
 
         <plugin name="GstCameraPlugin" filename="GstCameraPlugin">
           <udp_host>127.0.0.1</udp_host>
