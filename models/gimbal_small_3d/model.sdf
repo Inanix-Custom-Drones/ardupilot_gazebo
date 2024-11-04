@@ -191,19 +191,19 @@
       <sensor name="camera" type="camera">
         <pose>0 0 0 -1.57 -1.57 0</pose>
         <camera>
-          <horizontal_fov>2.0</horizontal_fov>
+          <horizontal_fov>1.089</horizontal_fov>
           <image>
-            <width>640</width>
-            <height>480</height>
+            <width>1280</width>
+            <height>720</height>
           </image>
           <clip>
             <near>0.05</near>
-            <far>15000</far>
+            <far>800.0</far>
           </clip>
         </camera>
         <always_on>1</always_on>
-        <update_rate>10</update_rate>
-        <visualize>1</visualize>
+        <update_rate>25</update_rate>
+        <visualize>0</visualize>
 
         <plugin filename="CameraZoomPlugin"
             name="CameraZoomPlugin">
@@ -217,6 +217,7 @@
           <udp_port>5600</udp_port>
           <use_basic_pipeline>true</use_basic_pipeline>
           <use_cuda>false</use_cuda>
+          <x264_caps>video/x-h264, intra-refresh=(int)5,  profile=(string)baseline, bframes=(int)10, bitrate=(int)1500000, b-adapt=(bool)true, aud=(bool)false</x264_caps>
         </plugin>
 
       </sensor>
