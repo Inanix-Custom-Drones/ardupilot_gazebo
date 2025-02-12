@@ -437,7 +437,7 @@ void GstCameraPlugin::Impl::CreateGenericPipeline(GstElement *pipeline)
 	    bool linkSrcQueue = gst_element_link(source, queue);
 	    bool linkQueueConv = gst_element_link(queue, converter);
 	    bool linkConvEnc = gst_element_link(converter, encoder);
-	    GstCaps *h264Caps = gst_caps_from_string(x264Caps);
+	    GstCaps *h264Caps = gst_caps_from_string(x264Caps.c_str());
 	    bool linkEncPay = gst_element_link_filtered(encoder, payloader, h264Caps);
 	    bool linkPaySink = gst_element_link(payloader, sink);
 
