@@ -6,10 +6,10 @@
       <uri>model://gimbal_small_3d</uri>
       <name>gimbal</name>
       <pose degrees="true">0 -0.01 0.25 90 0 90</pose>
-      <experimental:params>
+       <experimental:params>
 	      	<sensor element_id="pitch_link::camera">
 	      		<plugin name="GstCameraPlugin" action="modify">
-	      			<udp_port>5601</udp_port>
+	      			<udp_port>5811</udp_port>
 	      		</plugin>
 	      	</sensor>
 	</experimental:params>
