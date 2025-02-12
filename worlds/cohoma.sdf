@@ -325,13 +325,23 @@
     </model>
     
     <include>
-      <uri>model://beynes_cohoma</uri>
-      <pose degrees="true">0 0 112 0 0 0</pose>
+      <uri>model://simul_cohoma</uri>
+      <pose degrees="true">0 0 0 0 0 0</pose>
     </include>
 
     <include>
-      <uri>model://cube_cohoma_0002</uri>
-      <pose>28 -22 114 0 0 0</pose>
+      <uri>model://cube_cohoma_1</uri>
+      <pose>28 -22 1 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://cube_cohoma_2</uri>
+      <pose>-150 40 1 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://cube_cohoma_3</uri>
+      <pose>-280 -90 1 0 0 0</pose>
     </include>
 
     <include>

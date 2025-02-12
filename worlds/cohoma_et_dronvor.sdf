@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <sdf version="1.9">
-  <world name="dronvor">
+  <world name="cohoma">
     <physics name="1ms" type="ignored">
       <max_step_size>0.001</max_step_size>
       <real_time_factor>1.0</real_time_factor>
@@ -225,11 +225,6 @@
           <property type="string" key="state">docked</property>
         </gz-gui>
       </plugin>
-      <plugin filename="ImageDisplay" name="ImageDisplay">
-        <gz-gui>
-          <property type="string" key="state">docked_collapsed</property>
-        </gz-gui>
-      </plugin>
       <!-- missing table (see below)
       <plugin filename="JointPositionController" name="JointPositionController">
         <gz-gui>
@@ -253,9 +248,9 @@
     </gui>
 
     <spherical_coordinates>
-      <latitude_deg>48.1113387</latitude_deg>
-      <longitude_deg>-1.6800198</longitude_deg>
-      <elevation>49</elevation>
+      <latitude_deg>48.86314789481615</latitude_deg>
+      <longitude_deg>1.8904048204422</longitude_deg>
+      <elevation>45</elevation>
       <heading_deg>0</heading_deg>
       <surface_model>EARTH_WGS84</surface_model>
     </spherical_coordinates>
@@ -286,10 +281,10 @@
             </box>
           </geometry>
           <material>
-            <ambient>1 0 0 0.8</ambient>
-            <diffuse>1 0 0 0.8</diffuse>
-            <emissive>1 0 0 0.8</emissive>
-            <specular>0.5 0.5 0.5 0.8</specular>
+            <ambient>1 0 0 0.1</ambient>
+            <diffuse>1 0 0 0.1</diffuse>
+            <emissive>1 0 0 0.1</emissive>
+            <specular>0.5 0.5 0.5 0.1</specular>
           </material>
         </visual>
         <visual name="g">
@@ -301,10 +296,10 @@
             </box>
           </geometry>
           <material>
-            <ambient>0 1 0 0.8</ambient>
-            <diffuse>0 1 0 0.8</diffuse>
-            <emissive>0 1 0 0.8</emissive>
-            <specular>0.5 0.5 0.5 0.8</specular>
+            <ambient>0 1 0 0.1</ambient>
+            <diffuse>0 1 0 0.1</diffuse>
+            <emissive>0 1 0 0.1</emissive>
+            <specular>0.5 0.5 0.5 0.1</specular>
           </material>
         </visual>
         <visual name="b">
@@ -316,10 +311,10 @@
             </box>
           </geometry>
           <material>
-            <ambient>0 0 1 0.8</ambient>
-            <diffuse>0 0 1 0.8</diffuse>
-            <emissive>0 0 1 0.8</emissive>
-            <specular>0.5 0.5 0.5 0.8</specular>
+            <ambient>0 0 1 0.1</ambient>
+            <diffuse>0 0 1 0.1</diffuse>
+            <emissive>0 0 1 0.1</emissive>
+            <specular>0.5 0.5 0.5 0.1</specular>
           </material>
         </visual>
         <sensor name="navsat_sensor" type="navsat">
@@ -330,18 +325,29 @@
     </model>
     
     <include>
-      <uri>model://runway</uri>
-      <pose degrees="true">-29 545 0 0 0 363</pose>
+      <uri>model://beynes_cohoma</uri>
+      <pose degrees="true">0 0 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://cube_cohoma_0002</uri>
+      <pose>28 -22 1 0 0 0</pose>
     </include>
 
     <include>
       <uri>model://dronvor</uri>
-      <pose degrees="true">0 0 0.195 0 0 90</pose>
+      <pose degrees="true">0 0 113.5 0 0 90</pose>
     </include>
     
     <include>
-      <uri>model://dronvor_rover</uri>
-      <pose degrees="true">0 1 0.05 0 0 90</pose>
+      <uri>model://dronvor2</uri>
+      <pose degrees="true">0 -1 113.5 0 0 90</pose>
+    </include>
+    
+    
+    <include>
+      <uri>model://r1_rover_withgimbal</uri>
+      <pose degrees="true">0 1 113.5 0 0 90</pose>
     </include>
 
 
