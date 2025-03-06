@@ -9,7 +9,7 @@
        <experimental:params>
 	      	<sensor element_id="pitch_link::camera">
 	      		<plugin name="GstCameraPlugin" action="modify">
-	      			<udp_port>5811</udp_port>
+	      			<udp_port>15895</udp_port>
 	      		</plugin>
 	      	</sensor>
 	</experimental:params>
@@ -39,7 +39,7 @@
     <plugin name="ArduPilotPlugin"
       filename="ArduPilotPlugin">
       <fdm_addr>127.0.0.1</fdm_addr>
-      <fdm_port_in>9012</fdm_port_in>
+      <fdm_port_in>9042</fdm_port_in>
       <!--fdm_port_out>9013</fdm_port_out--> 
       <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
       <lock_step>1</lock_step>

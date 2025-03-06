@@ -1,0 +1,164 @@
+<?xml version='1.0'?>
+<sdf version='1.9'>
+  <model name='r1_rover_withgimbal2'>
+    <include>
+      <name>r1_rover_withgimbal2</name>
+      <uri>model://r1_rover_withgimbal</uri>
+      <experimental:params>
+      	<plugin element_id="ArduPilotPlugin" action="remove"/>
+	
+	<plugin element_id="gz::sim::systems::JointPositionController" action="remove"/>
+	<plugin element_id="gz::sim::systems::JointPositionController" action="remove"/>
+	<plugin element_id="gz::sim::systems::JointPositionController" action="remove"/>
+	
+	
+	<sensor element_id="gimbal::pitch_link::camera">
+      		<plugin name="GstCameraPlugin" action="modify">
+      			<udp_port>15894</udp_port>
+      		</plugin>
+      	</sensor>
+      </experimental:params>
+    </include>
+	    
+	<!-- ardupilot plugin -->
+	    <plugin name="ArduPilotPlugin"
+	      filename="ArduPilotPlugin">
+	      <fdm_addr>127.0.0.1</fdm_addr>
+	      <fdm_port_in>9052</fdm_port_in>
+	      <!--fdm_port_out>9013</fdm_port_out--> 
+	      <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
+	      <lock_step>1</lock_step>
+	      <gazeboXYZToNED degrees="true">0 0 0 180 0 90</gazeboXYZToNED>
+	      <modelXYZToAirplaneXForwardZDown degrees="true">0 0 0 180 0 0</modelXYZToAirplaneXForwardZDown>
+	      <imuName>r1_rover_withgimbal2::r1_rover::base_link::imu_sensor</imuName>
+
+	      <!-- lf_wheel_link -->
+	      <control channel="0">
+		<jointName>r1_rover_withgimbal2::r1_rover::motor_0</jointName>
+		<useForce>1</useForce>
+		<multiplier>46.3</multiplier>
+		<offset>-0.5</offset>
+		<servo_min>1000</servo_min>
+		<servo_max>2000</servo_max>
+		<type>VELOCITY</type>
+		<p_gain>0.2</p_gain>
+		<i_gain>0.06</i_gain>
+		<d_gain>0.0001</d_gain>
+		<i_max>1</i_max>
+		<i_min>-1</i_min>
+		<cmd_max>-1.0</cmd_max>
+		<cmd_min>0.0</cmd_min>
+	      </control>
+
+	      <!-- lb_wheel_link -->
+	      <control channel="0">
+		<jointName>r1_rover_withgimbal2::r1_rover::motor_1</jointName>
+		<useForce>1</useForce>
+		<multiplier>46.3</multiplier>
+		<offset>-0.5</offset>
+		<servo_min>1000</servo_min>
+		<servo_max>2000</servo_max>
+		<type>VELOCITY</type>
+		<p_gain>0.2</p_gain>
+		<i_gain>0.06</i_gain>
+		<d_gain>0.0001</d_gain>
+		<i_max>1</i_max>
+		<i_min>-1</i_min>
+		<cmd_max>-1.0</cmd_max>
+		<cmd_min>0.0</cmd_min>
+	      </control>
+
+	      <!-- rf_wheel_link -->
+	      <control channel="2">
+		<jointName>r1_rover_withgimbal2::r1_rover::motor_2</jointName>
+		<useForce>1</useForce>
+		<multiplier>-46.3</multiplier>
+		<offset>-0.5</offset>
+		<servo_min>1000</servo_min>
+		<servo_max>2000</servo_max>
+		<type>VELOCITY</type>
+		<p_gain>0.2</p_gain>
+		<i_gain>0.06</i_gain>
+		<d_gain>0.0001</d_gain>
+		<i_max>1</i_max>
+		<i_min>-1</i_min>
+		<cmd_max>-1.0</cmd_max>
+		<cmd_min>0.0</cmd_min>
+	      </control>
+
+	      <!-- rb_wheel_link -->
+	      <control channel="2">
+		<jointName>r1_rover_withgimbal2::r1_rover::motor_3</jointName>
+		<useForce>1</useForce>
+		<multiplier>-46.3</multiplier>
+		<offset>-0.5</offset>
+		<servo_min>1000</servo_min>
+		<servo_max>2000</servo_max>
+		<type>VELOCITY</type>
+		<p_gain>0.2</p_gain>
+		<i_gain>0.06</i_gain>
+		<d_gain>0.0001</d_gain>
+		<i_max>1</i_max>
+		<i_min>-1</i_min>
+		<cmd_max>-1.0</cmd_max>
+		<cmd_min>0.0</cmd_min>
+	      </control>
+	      
+	      <control channel="4">
+			<jointName>r1_rover_withgimbal2::gimbal::roll_joint</jointName>
+			<multiplier>3.14159265</multiplier>
+			<offset>-0.5</offset>
+			<servo_min>1100</servo_min>
+			<servo_max>1900</servo_max>
+			<type>COMMAND</type>
+			<cmd_topic>/r1_rover_withgimbal2/gimbal/cmd_roll</cmd_topic>
+			<p_gain>0.1</p_gain>
+		</control>
+
+		<control channel="5">
+			<jointName>r1_rover_withgimbal2::gimbal::pitch_joint</jointName>
+			<multiplier>3.14159265</multiplier>
+			<offset>-0.5</offset>
+			<servo_min>1100</servo_min>
+			<servo_max>1900</servo_max>
+			<type>COMMAND</type>
+			<cmd_topic>/r1_rover_withgimbal2/gimbal/cmd_tilt</cmd_topic>
+			<p_gain>0.1</p_gain>
+		</control>
+		
+		<control channel="6">
+			<jointName>r1_rover_withgimbal2::gimbal::yaw_joint</jointName>
+			<multiplier>3.14159265</multiplier>
+			<offset>-0.5</offset>
+			<servo_min>1100</servo_min>
+			<servo_max>1900</servo_max>
+			<type>COMMAND</type>
+			<cmd_topic>/r1_rover_withgimbal2/gimbal/cmd_yaw</cmd_topic>
+			<p_gain>0.1</p_gain>
+		</control>
+	    </plugin>
+	
+	    <plugin
+	      filename="gz-sim-joint-position-controller-system"
+	      name="gz::sim::systems::JointPositionController">
+	      <joint_name>r1_rover_withgimbal2::gimbal::roll_joint</joint_name>
+	      <topic>/r1_rover_withgimbal2/gimbal/cmd_roll</topic>
+	      <p_gain>2</p_gain>
+	    </plugin>
+	    <plugin
+	      filename="gz-sim-joint-position-controller-system"
+	      name="gz::sim::systems::JointPositionController">
+	      <joint_name>r1_rover_withgimbal2::gimbal::pitch_joint</joint_name>
+	      <topic>/r1_rover_withgimbal2/gimbal/cmd_tilt</topic>
+	      <p_gain>2</p_gain>
+	    </plugin>
+	    <plugin
+	      filename="gz-sim-joint-position-controller-system"
+	      name="gz::sim::systems::JointPositionController">
+	      <joint_name>r1_rover_withgimbal2::gimbal::yaw_joint</joint_name>
+	      <topic>/r1_rover_withgimbal2/gimbal/cmd_yaw</topic>
+	      <p_gain>2</p_gain>
+	    </plugin>
+	
+  </model>
+</sdf>

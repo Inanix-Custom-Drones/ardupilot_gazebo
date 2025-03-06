@@ -263,7 +263,7 @@
       <cast_shadows>true</cast_shadows>
       <pose>0 0 10 0 0 0</pose>
       <diffuse>0.8 0.8 0.8 1</diffuse>
-      <specular>0.8 0.8 0.8 1</specular>
+      <specular>0.0 0.0 0.0 0</specular>
       <attenuation>
         <range>1000</range>
         <constant>0.9</constant>
@@ -335,7 +335,7 @@
     
     <include>
       <uri>model://cube_cohoma_2</uri>
-      <pose>-550 300 150 0 0 0</pose>
+      <pose>-535 215 150 0 0 0</pose>
     </include>
     
     <include>
@@ -345,12 +345,49 @@
 
     <include>
       <uri>model://dronvor</uri>
-      <pose degrees="true">-400 140 150 0 0 90</pose>
+      <pose degrees="true">-400 140 145 0 0 90</pose>
+      <experimental:params>
+      	<plugin element_id="ArduPilotPlugin" action="modify" >
+		<fdm_port_in>9012</fdm_port_in>
+	</plugin>
+	<sensor element_id="gimbal::tilt_link::camera">
+      		<plugin name="GstCameraPlugin" action="modify">
+      			<udp_port>15898</udp_port>
+      		</plugin>
+      	</sensor>
+      </experimental:params>
     </include>
     
     <include>
+      <uri>model://dronvor2</uri>
+      <pose degrees="true">-402 140 145 0 0 90</pose>
+    </include>
+    
+    <include>
+      <uri>model://dronvor3</uri>
+      <pose degrees="true">-402 142 145 0 0 90</pose>
+    </include>
+ 
+    <include>
+      <name>quadx</name>
       <uri>model://r1_rover_withgimbal</uri>
-      <pose degrees="true">-400 141 150 0 0 90</pose>
+      <pose degrees="true">-400 141 145 0 0 90</pose>
+      <experimental:params>
+      	<plugin element_id="ArduPilotPlugin" action="modify" >
+		<fdm_port_in>9042</fdm_port_in>
+	</plugin>
+	<sensor element_id="gimbal::pitch_link::camera">
+      		<plugin name="GstCameraPlugin" action="modify">
+      			<udp_port>15895</udp_port>
+      		</plugin>
+      	</sensor>
+      </experimental:params>
+    </include>
+    
+    <include>
+      <name>quadxl</name>
+      <uri>model://r1_rover_withgimbal2</uri>
+      <pose degrees="true">-400 142 145 0 0 90</pose>
     </include>
     
     <include>
