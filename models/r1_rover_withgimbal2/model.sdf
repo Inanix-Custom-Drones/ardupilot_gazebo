@@ -14,7 +14,7 @@
 	
 	<sensor element_id="gimbal::pitch_link::camera">
       		<plugin name="GstCameraPlugin" action="modify">
-      			<udp_port>15894</udp_port>
+      			<udp_port>14894</udp_port>
       		</plugin>
       	</sensor>
       </experimental:params>

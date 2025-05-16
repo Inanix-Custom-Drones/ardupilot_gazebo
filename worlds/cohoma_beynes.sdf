@@ -330,29 +330,29 @@
     
     <include>
       <uri>model://cube_cohoma_1</uri>
-      <pose>-460 180 150 0 0 0</pose>
+      <pose>110 170 95 0 0 0</pose>
     </include>
     
     <include>
       <uri>model://cube_cohoma_2</uri>
-      <pose>-535 215 150 0 0 0</pose>
+      <pose>17 380 75 0 0 0</pose>
     </include>
     
     <include>
       <uri>model://cube_cohoma_3</uri>
-      <pose>-475 100 150 0 0 0</pose>
+      <pose>-90 170 95 0 0 0</pose>
     </include>
 
     <include>
       <uri>model://dronvor</uri>
-      <pose degrees="true">-400 140 145 0 0 90</pose>
+      <pose degrees="true">-130 300 93 0 0 90</pose>
       <experimental:params>
       	<plugin element_id="ArduPilotPlugin" action="modify" >
 		<fdm_port_in>9012</fdm_port_in>
 	</plugin>
 	<sensor element_id="gimbal::tilt_link::camera">
       		<plugin name="GstCameraPlugin" action="modify">
-      			<udp_port>15898</udp_port>
+      			<udp_port>14898</udp_port>
       		</plugin>
       	</sensor>
       </experimental:params>
@@ -360,20 +360,20 @@
     
     <include>
       <uri>model://dronvor2</uri>
-      <pose degrees="true">-402 140 145 0 0 90</pose>
+      <pose degrees="true">-132 300 93 0 0 90</pose>
     </include>
  
     <include>
       <name>quadx</name>
       <uri>model://r1_rover_withgimbal</uri>
-      <pose degrees="true">-400 142 145 0 0 90</pose>
+      <pose degrees="true">-130 302 93 0 0 90</pose>
       <experimental:params>
       	<plugin element_id="ArduPilotPlugin" action="modify" >
 		<fdm_port_in>9032</fdm_port_in>
 	</plugin>
 	<sensor element_id="gimbal::pitch_link::camera">
       		<plugin name="GstCameraPlugin" action="modify">
-      			<udp_port>15895</udp_port>
+      			<udp_port>14895</udp_port>
       		</plugin>
       	</sensor>
       </experimental:params>
@@ -382,20 +382,20 @@
     <include>
       <name>quadxl</name>
       <uri>model://r1_rover_withgimbal2</uri>
-      <pose degrees="true">-402 142 145 0 0 90</pose>
+      <pose degrees="true">-132 302 93 0 0 90</pose>
     </include>
     
     <include>
       <name>dimezell1</name>
       <uri>model://dimezell</uri>
-      <pose degrees="true">-400 144 140 0 0 90</pose>
+      <pose degrees="true">-130 304 93 0 0 90</pose>
       <experimental:params>
       	<plugin element_id="ArduPilotPlugin" action="modify" >
 		<fdm_port_in>9052</fdm_port_in>
 	</plugin>
 	<sensor element_id="camera_link::camera">
       		<plugin name="GstCameraPlugin" action="modify">
-      			<udp_port>15893</udp_port>
+      			<udp_port>14893</udp_port>
       		</plugin>
       	</sensor>
       </experimental:params>
@@ -404,14 +404,14 @@
     <include>
       <name>dimezell2</name>
       <uri>model://dimezell</uri>
-      <pose degrees="true">-402 144 140 0 0 90</pose>
+      <pose degrees="true">-132 304 93 0 0 90</pose>
       <experimental:params>
       	<plugin element_id="ArduPilotPlugin" action="modify" >
 		<fdm_port_in>9062</fdm_port_in>
 	</plugin>
 	<sensor element_id="camera_link::camera">
       		<plugin name="GstCameraPlugin" action="modify">
-      			<udp_port>15892</udp_port>
+      			<udp_port>14892</udp_port>
       		</plugin>
       	</sensor>
       </experimental:params>
@@ -420,14 +420,14 @@
     <include>
       <name>dimezell3</name>
       <uri>model://dimezell</uri>
-      <pose degrees="true">-404 144 140 0 0 90</pose>
+      <pose degrees="true">-134 304 93 0 0 90</pose>
       <experimental:params>
       	<plugin element_id="ArduPilotPlugin" action="modify" >
 		<fdm_port_in>9072</fdm_port_in>
 	</plugin>
 	<sensor element_id="camera_link::camera">
       		<plugin name="GstCameraPlugin" action="modify">
-      			<udp_port>15891</udp_port>
+      			<udp_port>14891</udp_port>
       		</plugin>
       	</sensor>
       </experimental:params>
