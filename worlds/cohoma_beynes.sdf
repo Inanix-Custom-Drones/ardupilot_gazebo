@@ -358,12 +358,12 @@
       </experimental:params>
     </include>
     
-    <include>
+    <!--include>
       <uri>model://dronvor2</uri>
       <pose degrees="true">-132 300 93 0 0 90</pose>
-    </include>
+    </include-->
  
-    <include>
+    <!--include>
       <name>quadx</name>
       <uri>model://r1_rover_withgimbal</uri>
       <pose degrees="true">-130 302 93 0 0 90</pose>
@@ -377,15 +377,15 @@
       		</plugin>
       	</sensor>
       </experimental:params>
-    </include>
+    </include-->
     
-    <include>
+    <!--include>
       <name>quadxl</name>
       <uri>model://r1_rover_withgimbal2</uri>
       <pose degrees="true">-132 302 93 0 0 90</pose>
-    </include>
+    </include-->
     
-    <include>
+    <!--include>
       <name>dimezell1</name>
       <uri>model://dimezell</uri>
       <pose degrees="true">-130 304 93 0 0 90</pose>
@@ -399,9 +399,9 @@
       		</plugin>
       	</sensor>
       </experimental:params>
-    </include>
+    </include-->
     
-    <include>
+    <!--include>
       <name>dimezell2</name>
       <uri>model://dimezell</uri>
       <pose degrees="true">-132 304 93 0 0 90</pose>
@@ -415,9 +415,9 @@
       		</plugin>
       	</sensor>
       </experimental:params>
-    </include>
+    </include-->
     
-    <include>
+    <!--include>
       <name>dimezell3</name>
       <uri>model://dimezell</uri>
       <pose degrees="true">-134 304 93 0 0 90</pose>
@@ -431,7 +431,7 @@
       		</plugin>
       	</sensor>
       </experimental:params>
-    </include>
+    </include-->
     
     <!--include>
       <name>dimezell4</name>
