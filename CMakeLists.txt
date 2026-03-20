@@ -32,6 +32,8 @@ if("$ENV{GZ_VERSION}" STREQUAL "harmonic" OR NOT DEFINED "ENV{GZ_VERSION}")
   set(GZ_SIM_VER ${gz-sim8_VERSION_MAJOR})
 
   message(STATUS "Compiling against Gazebo Harmonic")
+  message(STATUS "GSTREAMER INCLUDE_DIRS ${GST_INCLUDE_DIRS}")
+  message(STATUS "GSTREAMER LINK LIBRARIES ${GST_LINK_LIBRARIES}")
 # Garden
 elseif("$ENV{GZ_VERSION}" STREQUAL "garden")
   find_package(gz-cmake3 REQUIRED)
@@ -55,7 +57,8 @@ endif()
 find_package(RapidJSON REQUIRED)
 find_package(OpenCV REQUIRED)
 
-pkg_check_modules(GST REQUIRED gstreamer-1.0 gstreamer-app-1.0)
+pkg_check_modules(GST REQUIRED gstreamer-1.0)
+pkg_check_modules(GST REQUIRED gstreamer-app-1.0)
 
 
 # --------------------------------------------------------------------------- #

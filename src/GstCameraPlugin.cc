@@ -311,6 +311,11 @@ void *GstCameraPlugin::Impl::StartThread(void *param)
 void GstCameraPlugin::Impl::StartGstThread()
 {
     gst_init(nullptr, nullptr);
+	
+	if(gst_is_initialized){
+		gzmsg << "GstCameraPlugin:: GST initialized version : "
+		          << gst_version_string()  << std::endl;
+	}
 
     gst_loop = g_main_loop_new(nullptr, FALSE);
     if (!gst_loop)
@@ -326,8 +331,24 @@ void GstCameraPlugin::Impl::StartGstThread()
         gzerr << "GstCameraPlugin: GStreamer pipeline failed" << std::endl;
         return;
     }
-
-    source = gst_element_factory_make("appsrc", nullptr);
+	
+	GstElementFactory *srcfactory = gst_element_factory_find ("appsrc");
+	if(! srcfactory){
+		gzerr << "GstCameraPlugin: Error finding source appsrc "  << std::endl;
+		return;
+	}
+	source = gst_element_factory_create(srcfactory, nullptr);
+	if(! source){
+		gzerr << "GstCameraPlugin: Error initializing source appsrc "  << std::endl;
+		return;
+	}
+	
+    /*source = gst_element_factory_make("appsrc", nullptr);
+	if(! source){
+		gzerr << "GstCameraPlugin: Error initializing source appsrc "  << std::endl;
+		return;
+	}*/
+	
     if (useRtmpPipeline)
     {
         CreateRtmpPipeline(pipeline);
